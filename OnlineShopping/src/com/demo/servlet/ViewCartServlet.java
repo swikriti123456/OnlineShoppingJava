@@ -43,7 +43,7 @@ public class ViewCartServlet extends HttpServlet {
 				}
 			}
 			request.setAttribute("ilist",ilist );
-		request.getRequestDispatcher("view/viewCart.jsp").forward(request, response);
+		request.getRequestDispatcher("view/ViewCart.jsp").forward(request, response);
 		}
 		
 	}

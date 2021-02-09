@@ -19,12 +19,12 @@ public class SendEmail
 		boolean test = false;
 		
 		String toEmail=u.getEmail();
-		String fromEmail="swikritiranjan123@gmail.com";
-		String password="Sr27@$#-";
+		String fromEmail="swikritiranjan27@gmail.com";
+		String password="Swikriti@12";
 		
 		try {
 			Properties pr=new Properties();
-			pr.setProperty("mail.smtp.host", "smtp.mail.com");
+			pr.setProperty("mail.smtp.host", "smtp.gmail.com");
 			pr.setProperty("mail.smtp.port", "587");
 			pr.setProperty("mail.smtp.auth", "true");
 			pr.setProperty("mail.smtp.starttls.enable", "true");

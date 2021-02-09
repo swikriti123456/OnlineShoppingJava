@@ -17,6 +17,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<br>
 	<div class="container">
+	<div class="shadow-lg bg-light">
 		<ul class="list-unstyled">
 			<%
 				List<Item> ilist = (List<Item>) request.getAttribute("ilist");
@@ -28,7 +29,7 @@
 
 			<li class="list-group">
 				<div class="media">
-					<img class="mr-3" src="resources/image/<%=item.getImage()%>"
+					<img class="mr-3" style="height:75px;width:75px" src="resources/image/<%=item.getImage()%>"
 						alt="<%=item.getpName()%>">
 					<div class="media-body">
 						<h5 class="mt-0"><%=item.getpName()%><a class="close"
@@ -48,7 +49,8 @@
 		</ul>
 		<h3>
 			Total Amount:-<%=totAmt%></h3>
-	<a href="confirmOrder" class="btn btn-outline-info">Confirm Order</a>
+	<a href="confirmOrder" style="width:65rem; margin-left: 30px;" class="btn btn-outline-primary">Confirm Order</a>
+	</div>
 	</div>
 	
 </body>

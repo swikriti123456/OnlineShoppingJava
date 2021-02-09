@@ -10,17 +10,13 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<div style="height:90vh;margin-top:10rem">
-	<%if(request.getParameter("errorMsg") != null) {%>
-	<div class="alert alert-warning alert-dismissible fade show" 
-	role="alert">
-  <strong>Error</strong> <%=request.getParameter("errorMsg") %>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<%} %>
+	
+
 		<div class=" row justify-content-md-center h-100">
 			<div class="col-md-4 h-100">
+			
+			<jsp:include page="alerts.jsp"></jsp:include>
+			
 				<div class="align-middle card">
 					<div class="card-header bg-primary">
 						<h3 class="text-center">Login</h3>
@@ -44,6 +40,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

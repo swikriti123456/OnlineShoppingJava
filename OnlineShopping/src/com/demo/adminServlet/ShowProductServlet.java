@@ -21,7 +21,8 @@ public class ShowProductServlet extends HttpServlet {
 		ProductService productservice = new ProductServiceImpl();
 
 		try {
-			request.setAttribute("list", productservice.getAllProduct());
+			request.setAttribute("clist", productservice.getCategory());
+			request.setAttribute("plist", productservice.getAllProduct());
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

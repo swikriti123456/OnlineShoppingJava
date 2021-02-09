@@ -21,10 +21,10 @@
 				for (Product p : list) {
 		%>
 		<div class="col-md-3 ">
-			<div class="card p-1 style=height:25rem;" >
-				<a href="productDetails?pid= <%=p.getPid()%>"><img
-					src="resources/image/<%=p.getImage()%>" class="card-img-top h-100 "
-					alt="<%=p.getpName()%>"></a>
+			<div class="card p-1 style=height:25rem;width:25rem">
+				<img style="height: 310px; width: 310px"
+					src="resources/image/<%=p.getImage()%>" class="card-img-top "
+					alt="<%=p.getpName()%>">
 				<div class="card-body">
 					<h5 class="card-title"><%=p.getpName()%></h5>
 					<p>
@@ -33,9 +33,9 @@
 					<div class="row">
 						<div class="col">
 							<a href="productDetails?pid=<%=p.getPid()%>"
-								class="btn btn-info btn-block">Details</a>
-
-							<p class="card-text"></p>
+								class="btn btn-info btn-block stretched-link">Details</a>
+						</div>
+						<div class="col">
 							<a href="addToCart?pid=<%=p.getPid()%>&qty=1"
 								class="btn btn-success btn-block">Add To Cart</a>
 						</div>

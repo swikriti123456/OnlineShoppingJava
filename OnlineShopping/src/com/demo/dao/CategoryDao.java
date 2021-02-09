@@ -9,4 +9,6 @@ public interface CategoryDao {
 
 	List<category> getAllCategory() throws SQLException;
 
+	boolean save(category category) throws SQLException;
+
 }

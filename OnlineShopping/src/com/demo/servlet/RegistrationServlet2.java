@@ -36,7 +36,7 @@ public class RegistrationServlet2 extends HttpServlet {
 		String mobileNumber=request.getParameter("mob");
 		String password=request.getParameter("password");
 		
-		String role=request.getParameter("role");
+		String role="user";
 		UserService userservice=new UserServiceImpl();
 		
 		try {

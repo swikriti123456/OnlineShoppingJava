@@ -31,4 +31,13 @@ public class ProductServiceImpl implements ProductService {
 	public Product getProduct(int id) throws SQLException {
 		return productdao.getProduct(id);
 	}
+	@Override
+	public boolean save(Product product) throws SQLException {
+	
+		return productdao.save(product);
+	}
+	@Override
+	public boolean save(category category) throws SQLException {
+		return categorydao.save(category);
+	}
 }

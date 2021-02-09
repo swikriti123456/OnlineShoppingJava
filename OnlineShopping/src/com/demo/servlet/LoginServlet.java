@@ -43,10 +43,13 @@ public class LoginServlet extends HttpServlet {
 			if (u != null) {
 				HttpSession session=request.getSession();
 				session.setAttribute("user", u);
+				if(u.getRole().equals("admin"))
+					response.sendRedirect("adminHome");
+				else
 				response.sendRedirect("home");
 			} else {
 				
-				request.setAttribute("errorMsg", "invalid user");
+				request.getSession().setAttribute("errorMsg", "invalid user");
 				request.getRequestDispatcher("view/login.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {

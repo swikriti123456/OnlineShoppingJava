@@ -22,4 +22,12 @@ public interface ProductService {
 
 	Product getProduct(int id) throws SQLException;
 
+
+
+	boolean save(Product product) throws SQLException;
+
+
+
+	boolean save(category category) throws SQLException;
+
 }

@@ -29,7 +29,20 @@ public class Product
 		this.weight = weight;
 		this.price = price;
 	}
-
+	public Product(String pName, double price,  int qty,  int cid,String brandName, String subCategory,
+			String description,String image, String weight) {
+		super();
+		
+		this.qty = qty;
+		this.cid = cid;
+		this.pName = pName;
+		this.image=image;
+		this.brandName = brandName;
+		this.subCategory = subCategory;
+		this.description = description;
+		this.weight = weight;
+		this.price = price;
+	}
 	public String getImage() {
 		return image;
 	}

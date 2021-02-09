@@ -6,14 +6,21 @@ public class category
 	private String cName;
 	private String image;
 	
-	public category(int cId, String cName,String image) {
+	public category( String cName,String image) {
 		super();
-		this.cId = cId;
+		
 		this.cName = cName;
 		this.image=image;
 		
 	}
 	
+	public category(int cId, String cName, String image) {
+		super();
+		this.cId = cId;
+		this.cName = cName;
+		this.image = image;
+	}
+
 	public String getImage() {
 		return image;
 	}

@@ -23,13 +23,13 @@ public class UserDaoImpl implements UserDao{
 	private PreparedStatement psUpdateById;
 	public UserDaoImpl()  {
 		try {
-			psInsert=DBUtil.getMyConnection().prepareStatement("insert into user(firstName,lastName,email,address,mobileNo,password,role) value(?,?,?,?,?,?,?)");
-			psFindAll=DBUtil.getMyConnection().prepareStatement("select * from user");
-			psAuth=DBUtil.getMyConnection().prepareStatement("select * from user where email=? and password=?");
-			psFindByEmail=DBUtil.getMyConnection().prepareStatement("select * from user where email=?");
-			psUpdate=DBUtil.getMyConnection().prepareStatement("update user set firstName=?,lastName=?,address=?, mobileNo=? where email=?");
-			psUpdateById=DBUtil.getMyConnection().prepareStatement("update user set firstName=?,lastName=?,address=?, mobileNo=? where uid=?");
-			psFindById=DBUtil.getMyConnection().prepareStatement("select * from user where uid=?");
+			psInsert=DBUtil.getMyConnection().prepareStatement("insert into users(firstName,lastName,email,address,mobileNo,password,role) value(?,?,?,?,?,?,?)");
+			psFindAll=DBUtil.getMyConnection().prepareStatement("select * from users");
+			psAuth=DBUtil.getMyConnection().prepareStatement("select * from users where email=? and password=?");
+			psFindByEmail=DBUtil.getMyConnection().prepareStatement("select * from users where email=?");
+			psUpdate=DBUtil.getMyConnection().prepareStatement("update users set firstName=?,lastName=?,address=?, mobileNo=? where email=?");
+			psUpdateById=DBUtil.getMyConnection().prepareStatement("update users set firstName=?,lastName=?,address=?, mobileNo=? where uid=?");
+			psFindById=DBUtil.getMyConnection().prepareStatement("select * from users where uid=?");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
