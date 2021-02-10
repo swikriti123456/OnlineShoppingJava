@@ -17,7 +17,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<br>
 	<div class="container">
-	<div class="shadow-lg bg-light">
+	<div class="shadow-lg bg-light p-4">
 		<ul class="list-unstyled">
 			<%
 				List<Item> ilist = (List<Item>) request.getAttribute("ilist");
@@ -27,21 +27,18 @@
 						totAmt += item.getPrice() * item.getQty();
 			%>
 
-			<li class="list-group">
-				<div class="media">
+			<li class="media">
 					<img class="mr-3" style="height:75px;width:75px" src="resources/image/<%=item.getImage()%>"
 						alt="<%=item.getpName()%>">
 					<div class="media-body">
-						<h5 class="mt-0"><%=item.getpName()%><a class="close"
-								href="removeFromCart?pid=<%=item.getPid()%>"><span
-								aria-hidden="true">$times;</span></a>
+						<h5 class="mt-0"><%=item.getpName()%><a
+								href="removeFromCart?pid=<%=item.getPid()%>"class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a>
 						</h5>
 						PRICE:-<%=item.getPrice()%>
 						<br> QTY:-
 						<%=item.getQty()%>
 						<br> Total:-<%=item.getPrice() * item.getQty()%>
 					</div>
-				</div>
 			</li>
 			<%
 				}

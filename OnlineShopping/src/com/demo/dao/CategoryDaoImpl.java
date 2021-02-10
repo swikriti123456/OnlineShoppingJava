@@ -26,13 +26,12 @@ public class CategoryDaoImpl implements CategoryDao {
 	public List<category> getAllCategory() throws SQLException {
 		List<category> clist= new ArrayList<>();
 		ResultSet rs=pFindAll.executeQuery();
-		System.out.println("dsnkjncknlfvmlmvlf");
 		while(rs.next()) {
 			category c=new category(rs.getInt(1),rs.getString(2),rs.getString(3));
 			clist.add(c);
 			
 		}
-		clist.stream().forEach(System.out::println);
+	
 		return clist;
 	}
 	@Override

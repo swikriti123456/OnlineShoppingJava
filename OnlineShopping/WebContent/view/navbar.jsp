@@ -10,14 +10,14 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item"><a class="nav-link" href="home">Home <span
-					class="sr-only">(current)</span></a></li>
 			<%
 				if (session.getAttribute("user") != null) {
 
 					u = (user) session.getAttribute("user");
 					if (u.getRole().equals("user")) {
 			%>
+			<li class="nav-item"><a class="nav-link" href="home">Home <span
+					class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="category">Category</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="product">Product</a>
@@ -25,9 +25,15 @@
 			<%
 				} else if (u.getRole().equals("admin")) {
 			%>
+			<li class="nav-item"><a class="nav-link" href="adminHome">Home <span
+					class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="adminCategory">Category</a>
 			</li>
 			<li class="nav-item"><a class="nav-link" href="adminProduct">Product</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="adminCustomer">Customers</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" href="adminOrder">Order</a>
 			</li>
 
 			<%

@@ -64,7 +64,7 @@
 					</form>
 				</div>
 			</div>
-		</div>
+		</div><br>
 		<table class="table table-bordered mt-4" id="myDataTable">
 			<thead>
 				<tr>
