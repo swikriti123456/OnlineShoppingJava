@@ -64,7 +64,9 @@
 					</form>
 				</div>
 			</div>
-		</div><br>
+		</div>
+		<br>
+		<br>
 		<table class="table table-bordered mt-4" id="myDataTable">
 			<thead>
 				<tr>
@@ -84,9 +86,9 @@
 						src="resources/image/<%=c.getImage()%>"></td>
 					<td><%=c.getcName()%></td>
 
-					<td><a href="editProduct?pid=<%=c.getcId()%>"
+					<td><a href="editCategory?cid=<%=c.getcId()%>"
 						class="btn btn-info">edit</a>/<a
-						href="deleteProduct?pid=<%=c.getcId()%>" class="btn btn-danger"
+						href="deleteCategory?cid=<%=c.getcId()%>" class="btn btn-danger"
 						onClick="return confirm('Are you sure?')">delete</a></td>
 				</tr>
 				<%

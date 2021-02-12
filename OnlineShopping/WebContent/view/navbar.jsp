@@ -1,6 +1,5 @@
-<%@ page language="java" import="java.util.* ,com.model.user"
-	contentType="text/html;charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%!user u = null;%>
+<%@ page language="java" import="java.util.*,com.model.User" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%!User u;%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<a class="navbar-brand" href="home">Online shop</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -13,7 +12,7 @@
 			<%
 				if (session.getAttribute("user") != null) {
 
-					u = (user) session.getAttribute("user");
+					 u = (User) session.getAttribute("user");
 					if (u.getRole().equals("user")) {
 			%>
 			<li class="nav-item"><a class="nav-link" href="home">Home <span
@@ -49,6 +48,7 @@
 			<li class="nav-item"><a class="nav-link" href="registeration2">SignUp</a></li>
 			<%
 				} else {
+					
 					if(u.getRole().equals("user")){
 			%>
 				<li class="nav-item"><a class="nav-link" href="viewCart">Cart

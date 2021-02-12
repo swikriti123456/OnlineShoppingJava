@@ -8,13 +8,15 @@ import com.model.category;
 
 public interface ProductDao {
 
-	List<Product> getProductById(int id) throws SQLException;
+	List<Product> getProductBycId(int id) throws SQLException;
 
 	List<Product> getAllProduct() throws SQLException;
 
-	Product getProduct(int id) throws SQLException;
+	Product getProductBypId(int id) throws SQLException;
 
 	boolean save(Product p) throws SQLException;
+
+	boolean deleteProductById(int pid) throws SQLException;
 
 
 

@@ -8,11 +8,11 @@ import com.model.category;
 
 public interface ProductService {
 
-	List<category> getCategory() throws SQLException;
+	
 
 	
 
-	List<Product> getProductById(int id) throws SQLException;
+	List<Product> getProductBycId(int id) throws SQLException;
 
 
 
@@ -20,7 +20,7 @@ public interface ProductService {
 
 
 
-	Product getProduct(int id) throws SQLException;
+	Product getProductBypId(int id) throws SQLException;
 
 
 
@@ -28,6 +28,9 @@ public interface ProductService {
 
 
 
-	boolean save(category category) throws SQLException;
+	boolean deleteProductById(int pid) throws SQLException;
 
+
+
+	
 }

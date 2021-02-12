@@ -3,23 +3,24 @@ package com.demo.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.model.user;
+import com.model.User;
+
 
 public interface UserDao {
 
-	boolean save(user u) throws SQLException;
+	boolean save(User u) throws SQLException;
 
-	List<user> findAll() throws SQLException;
+	List<User> findAll() throws SQLException;
 
-	user authentication(String email, String password) throws SQLException;
+	User authentication(String email, String password) throws SQLException;
 
-	user getByEmail(String email) throws SQLException;
+	User getByEmail(String email) throws SQLException;
 
-	boolean update(user u) throws SQLException;
+	boolean update(User u) throws SQLException;
 
-	user getById(int id) throws SQLException;
+	User getById(int id) throws SQLException;
 
-	boolean updateById(user u) throws SQLException;
+	boolean updateById(User u) throws SQLException;
 
 }
 

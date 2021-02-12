@@ -109,6 +109,8 @@
 				</div>
 			</div>
 		</div>
+		<br>
+		<br>
 		<%
 			List<Product> list = (List<Product>) request.getAttribute("plist");
 			if (list != null) {

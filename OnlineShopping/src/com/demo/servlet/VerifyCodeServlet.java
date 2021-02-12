@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.model.user;
+import com.model.User;
+
 
 @WebServlet("/verifyCode")
 public class VerifyCodeServlet extends HttpServlet {
@@ -18,7 +19,7 @@ public class VerifyCodeServlet extends HttpServlet {
   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
-		user u=(user) session.getAttribute("authcode");
+		User u=(User) session.getAttribute("authcode");
 		
 		PrintWriter out=response.getWriter();
 		

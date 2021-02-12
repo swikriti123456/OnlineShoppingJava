@@ -12,24 +12,20 @@ import com.model.category;
 
 public class ProductServiceImpl implements ProductService {
 
-	CategoryDao categorydao=new CategoryDaoImpl();
+	
 	ProductDao productdao=new ProductDaoImpl();
+	
 	@Override
-	public List<category> getCategory() throws SQLException {
-		
-		return categorydao.getAllCategory() ;
-	}
-	@Override
-	public List<Product> getProductById(int id) throws SQLException {
-		return productdao.getProductById(id);
+	public List<Product> getProductBycId(int id) throws SQLException {
+		return productdao.getProductBycId(id);
 	}
 	@Override
 	public List<Product> getAllProduct() throws SQLException {
 		return productdao.getAllProduct();
 	}
 	@Override
-	public Product getProduct(int id) throws SQLException {
-		return productdao.getProduct(id);
+	public Product getProductBypId(int id) throws SQLException {
+		return productdao.getProductBypId(id);
 	}
 	@Override
 	public boolean save(Product product) throws SQLException {
@@ -37,7 +33,9 @@ public class ProductServiceImpl implements ProductService {
 		return productdao.save(product);
 	}
 	@Override
-	public boolean save(category category) throws SQLException {
-		return categorydao.save(category);
+	public boolean deleteProductById(int pid) throws SQLException {
+		
+		return productdao.deleteProductById(pid);
 	}
+	
 }

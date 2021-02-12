@@ -27,7 +27,7 @@ public class ProductDetailsServlet extends HttpServlet {
 		} else {
 			int id = Integer.parseInt(request.getParameter("pid"));
 			try {
-				p = productservice.getProduct(id);
+				p = productservice.getProductBypId(id);
 				
 				request.setAttribute("product", p);
 

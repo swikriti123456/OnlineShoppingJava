@@ -10,7 +10,7 @@ import com.model.Product;
 
 public class ProductDaoImpl implements ProductDao {
 
-	private PreparedStatement pGetProductById,pGetAllProduct,pGetProduct,pInsert;
+	private PreparedStatement pGetProductById,pGetAllProduct,pGetProduct,pInsert,pDelete;
 	
 	public ProductDaoImpl() {
 		try {
@@ -18,6 +18,7 @@ public class ProductDaoImpl implements ProductDao {
 			pGetAllProduct=DBUtil.getMyConnection().prepareStatement("select * from product");
 			pGetProduct=DBUtil.getMyConnection().prepareStatement("select * from product where pid=?");
 			pInsert=DBUtil.getMyConnection().prepareStatement("insert into product(pid,pname,price,quantity,cid,brandName,subCategory,description,weight,imageUrl) value(?,?,?,?,?,?,?,?,?,?)");
+			pDelete=DBUtil.getMyConnection().prepareStatement("delete from product where pid=?");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
 	
 	
 	@Override
-	public List<Product> getProductById(int id) throws SQLException {
+	public List<Product> getProductBycId(int id) throws SQLException {
 		List<Product> plist =new ArrayList<>();
 		pGetProductById.setInt(1,id);
 		
@@ -49,7 +50,7 @@ public class ProductDaoImpl implements ProductDao {
 		return plist;
 	}
 	@Override
-	public Product getProduct(int id) throws SQLException {
+	public Product getProductBypId(int id) throws SQLException {
 		pGetProduct.setInt(1, id);
 		Product p=null;
 		ResultSet rs=pGetProduct.executeQuery();
@@ -73,6 +74,17 @@ public class ProductDaoImpl implements ProductDao {
 		pInsert.setString(10, p.getImage());
 		
 		int n=pInsert.executeUpdate();
+		if(n>0) {
+			return true;
+		}
+		return false;
+	}
+
+
+	@Override
+	public boolean deleteProductById(int pid) throws SQLException {
+		pDelete.setInt(1, pid);
+		int n=pDelete.executeUpdate();
 		if(n>0) {
 			return true;
 		}

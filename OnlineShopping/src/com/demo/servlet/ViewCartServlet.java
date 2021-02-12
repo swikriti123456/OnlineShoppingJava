@@ -35,7 +35,7 @@ public class ViewCartServlet extends HttpServlet {
 			HashMap<Integer,Integer> cart=(HashMap<Integer, Integer>) session.getAttribute("cart");
 			for(Map.Entry<Integer, Integer> it:cart.entrySet()) {
 				try {
-					Product p=productservice.getProduct(it.getKey());
+					Product p=productservice.getProductBypId(it.getKey());
 					ilist.add(new Item(p.getPid(),it.getValue(),p.getpName(),p.getPrice(),p.getImage()));
 				} catch (SQLException e) {
 					

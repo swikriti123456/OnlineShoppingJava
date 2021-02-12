@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import com.demo.service.ProductService;
 import com.demo.service.ProductServiceImpl;
 import com.model.Product;
-import com.model.user;
+
 
 /**
  * Servlet implementation class ConfirmOrderServlet
@@ -35,7 +35,7 @@ public class ConfirmOrderServlet extends HttpServlet {
 		for(Map.Entry<Integer, Integer>entry:hm.entrySet()) {
 			Product p;
 			try {
-				p =  productService.getProduct(entry.getKey());
+				p =  productService.getProductBypId(entry.getKey());
 				p.setQty(entry.getValue());
 				plist.add(p);
 			} catch (SQLException e) {

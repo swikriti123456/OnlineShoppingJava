@@ -2,12 +2,12 @@ package com.demo.service;
 
 import java.sql.SQLException;
 
-import com.model.user;
+import com.model.User;
 
 public interface UserService {
 
-	user validate(String email, String password) throws SQLException;
+	User validate(String email, String password) throws SQLException;
 
-	boolean save(user user) throws SQLException;
+	boolean save(User user) throws SQLException;
 
 }

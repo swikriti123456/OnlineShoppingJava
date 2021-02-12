@@ -17,8 +17,8 @@
 		Product p = (Product) request.getAttribute("product");
 		if (p != null) {
 	%>
-	<div class="container">
-		<div class="row">
+	<div class="container mt-4">
+		<div class="row ">
 			<div class="col-md-5  ">
 				<img src="resources/image/<%=p.getImage()%>"
 					class="img-thumbnasil w-100 shadow-lg ">

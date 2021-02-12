@@ -8,7 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.model.user;
+import com.model.User;
+
 
 
 
@@ -37,7 +38,7 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 	@Override
-	public boolean save(user u) throws SQLException {
+	public boolean save(User u) throws SQLException {
 	
 		psInsert.setString(1, u.getFirstName());
 		psInsert.setString(2, u.getLastName());
@@ -55,17 +56,17 @@ public class UserDaoImpl implements UserDao{
 		return false;
 	}
 	@Override
-	public List<user> findAll() throws SQLException {
-		List<user> ulist=new ArrayList<>();
+	public List<User> findAll() throws SQLException {
+		List<User> ulist=new ArrayList<>();
 		ResultSet rs=psFindAll.executeQuery();
 		while(rs.next()) {
-			user u=new user();
+			User u=new User();
 			ulist.add(u);
 		}
 		return ulist;
 	}
 	@Override
-	public user authentication(String email, String password) throws SQLException {
+	public User authentication(String email, String password) throws SQLException {
 	
 		psAuth.setString(1, email);
 		psAuth.setString(2, password);
@@ -74,22 +75,22 @@ public class UserDaoImpl implements UserDao{
 		ResultSet rs=psAuth.executeQuery();
 		while(rs.next()) {
 			if(rs.getString("email").equals(email) && rs.getString("password").equals(password)) {
-				return new user(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				return new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
 			}
 		}
 		return null;
 	}
 	@Override
-	public user getByEmail(String email) throws SQLException {
+	public User getByEmail(String email) throws SQLException {
 		psFindByEmail.setString(1, email);
 		ResultSet rs=psFindByEmail.executeQuery();
 		if(rs.next()) {
-			return new user(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+			return new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
 		}
 		return null;
 	}
 	@Override
-	public boolean update(user u) throws SQLException {
+	public boolean update(User u) throws SQLException {
 		psUpdate.setString(1, u.getFirstName());
 		psUpdate.setString(2, u.getLastName());
 		psUpdate.setString(3,u.getAddress());
@@ -101,7 +102,7 @@ public class UserDaoImpl implements UserDao{
 		return false;
 	}
 	@Override
-	public boolean updateById(user u) throws SQLException {
+	public boolean updateById(User u) throws SQLException {
 		psUpdateById.setString(1, u.getFirstName());
 		psUpdateById.setString(2, u.getLastName());
 		psUpdateById.setString(3,u.getAddress());
@@ -114,12 +115,12 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public user getById(int id) throws SQLException {
+	public User getById(int id) throws SQLException {
 		psFindById.setInt(1,id);
 		
 		ResultSet rs=psFindById.executeQuery();
 		if(rs.next()) {
-			return new user();
+			return new User();
 		}
 		return null;
 	}

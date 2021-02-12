@@ -4,17 +4,18 @@ import java.sql.SQLException;
 
 import com.demo.dao.UserDao;
 import com.demo.dao.UserDaoImpl;
-import com.model.user;
+import com.model.User;
+
 
 public class UserServiceImpl implements UserService {
 UserDao userdao=new UserDaoImpl();
 	@Override
-	public user validate(String email, String password) throws SQLException {
+	public User validate(String email, String password) throws SQLException {
 	
 		return userdao.authentication(email, password);
 	}
 	@Override
-	public boolean save(user user) throws SQLException {
+	public boolean save(User user) throws SQLException {
 	
 		return userdao.save(user);
 	}

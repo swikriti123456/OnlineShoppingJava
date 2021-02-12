@@ -29,7 +29,7 @@ public class ProductServlet extends HttpServlet {
 			
 		} else {
 			int id = Integer.parseInt(request.getParameter("cid"));
-				plist = productservice.getProductById(id);
+				plist = productservice.getProductBycId(id);
 				
 				
 		}}catch(Exception e) {e.printStackTrace();}

@@ -11,12 +11,13 @@ import com.model.category;
 public class CategoryDaoImpl implements CategoryDao {
 
 	
-	private PreparedStatement pFindAll,pInsert;
+	private PreparedStatement pFindAll,pInsert,pDelete;
 	
 	public CategoryDaoImpl() {
 		try {
 			pFindAll=DBUtil.getMyConnection().prepareStatement("select * from category");
 			pInsert=DBUtil.getMyConnection().prepareStatement("insert into category(cName,imageUrl) value(?,?)");
+			pDelete=DBUtil.getMyConnection().prepareStatement("delete from category where cid=?");
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -41,6 +42,15 @@ public class CategoryDaoImpl implements CategoryDao {
 		
 		int n=pInsert.executeUpdate();
 		if(n>0) {
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public boolean deleteCategoryById(int cid) throws SQLException {
+		pDelete.setInt(1, cid);
+		int n=pDelete.executeUpdate();
+		if(n > 0) {
 			return true;
 		}
 		return false;

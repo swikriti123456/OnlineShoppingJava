@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.demo.service.CategoryService;
+import com.demo.service.CategoryServiceImpl;
 import com.demo.service.ProductService;
 import com.demo.service.ProductServiceImpl;
 import com.model.category;
@@ -18,11 +20,11 @@ import com.model.category;
 @WebServlet("/category")
 public class CategoryServlet extends HttpServlet
 {
-	ProductService productservice=new ProductServiceImpl();
+	CategoryService categoryservice=new CategoryServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			List<category> clist =productservice.getCategory();
+			List<category> clist =categoryservice.getCategory();
 			
 			req.setAttribute("clist", clist);
 			req.getRequestDispatcher("view/Category.jsp").forward(req, resp);

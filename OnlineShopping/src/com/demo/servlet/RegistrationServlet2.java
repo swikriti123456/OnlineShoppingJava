@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.jni.User;
+
 
 import com.demo.service.SendEmail;
 import com.demo.service.UserService;
 import com.demo.service.UserServiceImpl;
-import com.model.user;
+import com.model.User;
 
 @WebServlet("/registeration2")
 public class RegistrationServlet2 extends HttpServlet {
@@ -40,11 +40,11 @@ public class RegistrationServlet2 extends HttpServlet {
 		UserService userservice=new UserServiceImpl();
 		
 		try {
-			boolean flag=userservice.save(new user(firstName,lastName,email,address,mobileNumber,password,role));
+			boolean flag=userservice.save(new User(firstName,lastName,email,address,mobileNumber,password,role));
 			if(flag) {
 				SendEmail sm=new SendEmail();
 				String code=sm.getRandom();
-				user u=new user(code);
+				User u=new User(code);
 				boolean flag1=sm.sendEmail(u);
 				
 				if(flag1) {

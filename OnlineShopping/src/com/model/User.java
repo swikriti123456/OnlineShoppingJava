@@ -1,20 +1,20 @@
 package com.model;
 
-public class user 
+public class User 
 {
 	private String firstName,lastName,email,address,mobileNumber,password,role,code;
 	private int uid;
-	public user() {
+	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public user(String code) {
+	public User(String code) {
 		super();
 		
 		this.code=code;
 	
 	}
-	public user(int uid,String firstName, String lastName, String email, String address, String mobileNumber, String password,
+	public User(int uid,String firstName, String lastName, String email, String address, String mobileNumber, String password,
 			String role) {
 		super();
 		this.role=role;
@@ -27,7 +27,7 @@ public class user
 	
 		this.uid=uid;
 	}
-	public user(String firstName, String lastName, String email, String address, String mobileNumber, String password,
+	public User(String firstName, String lastName, String email, String address, String mobileNumber, String password,
 			String role) {
 		super();
 		this.role=role;

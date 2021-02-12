@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.demo.service.CategoryService;
+import com.demo.service.CategoryServiceImpl;
 import com.demo.service.ProductService;
 import com.demo.service.ProductServiceImpl;
 import com.model.category;
@@ -29,10 +31,9 @@ public class AddCategory extends HttpServlet {
 		String pName = request.getParameter("inputname");
 		String image = request.getParameter("inputImage");
 		
-		ProductService productservice=new ProductServiceImpl();
-		
+		CategoryService categoryservice=new CategoryServiceImpl();
 		try {
-			boolean flag=productservice.save(new category(pName,image));
+			boolean flag=categoryservice.save(new category(pName,image));
 			 if(flag) {
 				request.getSession().setAttribute("successMsg","inserted successfully");
 				

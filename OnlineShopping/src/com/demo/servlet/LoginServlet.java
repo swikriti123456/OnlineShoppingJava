@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.demo.service.UserService;
 import com.demo.service.UserServiceImpl;
-import com.model.user;
+import com.model.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	
 		String Msg;
 		try {
-			user u = userservice.validate(email, password);
+			User u = userservice.validate(email, password);
 			
 			if (u != null) {
 				HttpSession session=request.getSession();

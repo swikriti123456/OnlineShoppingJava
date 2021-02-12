@@ -2,7 +2,9 @@ package com.demo.service;
 
 import java.util.Properties;
 import java.util.Random;
-import com.model.user;
+
+import com.model.User;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage; 
@@ -15,7 +17,7 @@ public class SendEmail
 		return String.format("%06d", number);
 	}
 	
-	public boolean sendEmail(user u) {
+	public boolean sendEmail(User u) {
 		boolean test = false;
 		
 		String toEmail=u.getEmail();
@@ -24,10 +26,12 @@ public class SendEmail
 		
 		try {
 			Properties pr=new Properties();
-			pr.setProperty("mail.smtp.host", "smtp.gmail.com");
-			pr.setProperty("mail.smtp.port", "587");
 			pr.setProperty("mail.smtp.auth", "true");
 			pr.setProperty("mail.smtp.starttls.enable", "true");
+			pr.setProperty("mail.smtp.host", "smtp.gmail.com");
+			pr.setProperty("mail.smtp.port", "587");
+			
+			
 			
 			//get session
 			Session session=Session.getInstance(pr,new Authenticator() {
