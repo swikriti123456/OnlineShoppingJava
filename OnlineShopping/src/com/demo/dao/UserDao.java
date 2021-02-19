@@ -14,13 +14,16 @@ public interface UserDao {
 
 	User authentication(String email, String password) throws SQLException;
 
-	User getByEmail(String email) throws SQLException;
+	
 
 	boolean update(User u) throws SQLException;
 
 	User getById(int id) throws SQLException;
 
 	boolean updateById(User u) throws SQLException;
+
+	User getUser(User user) throws SQLException;
+
 
 }
 

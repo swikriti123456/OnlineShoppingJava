@@ -17,7 +17,7 @@
 					<h3 class="text-center">verify</h3>
 				</div>
 				<div class="card-body border-primary">
-					<form action="verifyCode" method="post">
+					<form  method="post">
 						<div class="form-group">
 							<label for="verify">Verification code</label> <input type="text"
 								class="form-control" name="code" id="code"

@@ -21,15 +21,19 @@ public class SendEmail
 		boolean test = false;
 		
 		String toEmail=u.getEmail();
-		String fromEmail="swikritiranjan27@gmail.com";
-		String password="Swikriti@12";
+		String fromEmail="swikritiranjan2710@gmail.com";
+		String password="Swik@123";
 		
 		try {
 			Properties pr=new Properties();
-			pr.setProperty("mail.smtp.auth", "true");
-			pr.setProperty("mail.smtp.starttls.enable", "true");
+			
 			pr.setProperty("mail.smtp.host", "smtp.gmail.com");
 			pr.setProperty("mail.smtp.port", "587");
+			
+			pr.setProperty("mail.smtp.auth", "true");
+			pr.setProperty("mail.smtp.starttls.enable", "true");
+			
+			
 			
 			
 			
@@ -50,7 +54,7 @@ public class SendEmail
 			
 			mess.setSubject("user mail verification");
 			
-			mess.setText("registration successfully..please verify your account"+u.getCode());
+			mess.setText("registration successfully..please verify your account "+u.getCode());
 			
 			Transport.send(mess);
 			test=true;
@@ -60,4 +64,7 @@ public class SendEmail
 		
 		return test;
 	}
+
+	
+	
 }

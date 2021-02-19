@@ -10,4 +10,6 @@ public interface UserService {
 
 	boolean save(User user) throws SQLException;
 
+	User getUser(User user) throws SQLException;
+
 }

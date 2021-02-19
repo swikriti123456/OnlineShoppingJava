@@ -39,19 +39,25 @@ public class RegistrationServlet2 extends HttpServlet {
 		String role="user";
 		UserService userservice=new UserServiceImpl();
 		
+		
 		try {
-			boolean flag=userservice.save(new User(firstName,lastName,email,address,mobileNumber,password,role));
-			if(flag) {
+				User user=new User(email);
+				
 				SendEmail sm=new SendEmail();
+				
 				String code=sm.getRandom();
-				User u=new User(code);
-				boolean flag1=sm.sendEmail(u);
+				System.out.println("code:- "+code);
+				user.setCode(code);
+				
+				boolean flag1=sm.sendEmail(user);
 				
 				if(flag1) {
+					user=new User(firstName,lastName,email,address,mobileNumber,password,role);
+					userservice.save(user);
 					HttpSession session=request.getSession();
-					session.setAttribute("authcode", u);
-					resp.sendRedirect("view/verify.jsp");
-				}
+					session.setAttribute("authcode", user);
+					resp.sendRedirect("verifyCode");
+				
 			}
 			else {
 				request.getRequestDispatcher("view/registration.jsp").forward(request, resp);

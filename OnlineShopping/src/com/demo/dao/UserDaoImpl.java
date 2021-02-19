@@ -81,8 +81,8 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 	@Override
-	public User getByEmail(String email) throws SQLException {
-		psFindByEmail.setString(1, email);
+	public User getUser(User user) throws SQLException {
+		psFindByEmail.setString(1, user.getEmail());
 		ResultSet rs=psFindByEmail.executeQuery();
 		if(rs.next()) {
 			return new User(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));

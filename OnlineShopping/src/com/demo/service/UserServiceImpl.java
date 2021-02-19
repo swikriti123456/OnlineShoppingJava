@@ -19,5 +19,9 @@ UserDao userdao=new UserDaoImpl();
 	
 		return userdao.save(user);
 	}
+	@Override
+	public User getUser(User user) throws SQLException {
+		return userdao.getUser(user);
+	}
 
 }

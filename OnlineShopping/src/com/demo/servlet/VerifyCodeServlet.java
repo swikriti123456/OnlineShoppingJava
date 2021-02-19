@@ -12,26 +12,31 @@ import javax.servlet.http.HttpSession;
 
 import com.model.User;
 
-
 @WebServlet("/verifyCode")
 public class VerifyCodeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		User u=(User) session.getAttribute("authcode");
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		User u = (User) session.getAttribute("authcode");
+
+		PrintWriter out = response.getWriter();
 		
-		PrintWriter out=response.getWriter();
+		String code=request.getParameter("code");
 		
-		String code=request.getParameter("authcode");
-		if(code.equals(u.getCode())) {
+		if (code != null && code.equals(u.getCode())) {
+			
 			out.print("varification done");
 			response.sendRedirect("login");
-		}
-		else {
+		} else {
 			out.print("incorrect verificationcode");
 			request.getRequestDispatcher("view/verify.jsp").forward(request, response);
 		}
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("view/verify.jsp").forward(req, resp);
+	}
 }
